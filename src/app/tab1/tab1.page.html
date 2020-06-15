@@ -5,8 +5,20 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  <div class="ion-padding">
-    <ion-button (click)="StartScanning()" expand="full" color="danger">QRScanner</ion-button>
-  </div>
+
+<ion-content [fullscreen]="true" color="medium" class="ion-justify-content-center">
+
 </ion-content>
+
+<div class="screen">
+  <div class="scan">
+    <img id="logo" src="assets/icon.png">
+  </div>
+</div>
+
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="dark">
+    <ion-button expand="block" (click)="StartScanning()">QRScanner</ion-button>
+  </ion-toolbar>
+</ion-footer>

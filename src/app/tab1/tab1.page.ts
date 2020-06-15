@@ -25,16 +25,14 @@ export class Tab1Page {
     });
   }
 
-  public lerQRCode() {
-
-    this.body = document.getElementsByTagName("ion-content")[0] as HTMLElement;
-
-    this.img = document.getElementById('logo') as HTMLElement;
+  public StartScanning() {
 
     this.qrScanner.prepare()
       .then((status: QRScannerStatus) => {
         if (status.authorized) {
           // camera permission was granted
+          this.body = document.getElementsByTagName('ion-content')[0] as HTMLElement;
+          this.img = document.getElementById('logo');
           this.body.style.opacity = "0";
           this.img.style.opacity = "0";
           // start scanning
