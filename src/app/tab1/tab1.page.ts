@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { AlertController, Platform } from '@ionic/angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -11,10 +12,15 @@ export class Tab1Page {
 
   public scanner: any;
 
+  currentOrientation:String="";
+
   public body: HTMLElement;
   public img: HTMLElement;
 
-  constructor(private qrScanner: QRScanner, public alertController: AlertController, public platform: Platform) {
+  constructor(private qrScanner: QRScanner, 
+                      public alertController: AlertController, 
+                      public platform: Platform,
+                      private screenOrientation: ScreenOrientation) {
     this.platform.backButton.subscribeWithPriority(0, () => {
 
       this.body.style.opacity = "1";
@@ -62,14 +68,22 @@ export class Tab1Page {
   }
 
   async presentAlert(text) {
+
     const alert = await this.alertController.create({
       header: 'Leitor de QRCode',
       subHeader: 'Resultado:',
-      message: text,
+      message: `<textarea>${text}</textarea>`,
       buttons: ['OK']
     });
 
     await alert.present();
   }
 
+  SetToLandSpaceOrientation(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
+
+  ngOnInit() {
+    this.SetToLandSpaceOrientation();
+  }
 }
