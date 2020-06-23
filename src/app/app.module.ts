@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { IonicStorageModule } from '@ionic/storage';
+import { QrcodeService } from './services/qrcode.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +22,10 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
       BrowserModule,
       IonicModule.forRoot(),
       AppRoutingModule,
+      IonicStorageModule.forRoot({
+        name: '__mydb',
+        driverOrder: ['indexeddb', 'sqlite', 'websql']
+      })
     ],
   providers: [
     StatusBar,
@@ -27,7 +33,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     QRScanner,
     Dialogs,
-    ScreenOrientation
+    ScreenOrientation,
+    QrcodeService
   ],
   bootstrap: [AppComponent]
 })

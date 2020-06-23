@@ -12,8 +12,6 @@ export class Tab1Page {
 
   public scanner: any;
 
-  currentOrientation:String="";
-
   public body: HTMLElement;
   public img: HTMLElement;
 
