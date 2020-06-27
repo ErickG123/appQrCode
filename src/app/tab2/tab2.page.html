@@ -6,7 +6,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="medium">
-
+<ion-content [fullscreen]="true" color="medium" class="ion-justify-content-center">
+    <ion-item-sliding *ngFor="let historico of historicos">
+      <ion-item lines="full">
+        <ion-label class="label">
+          <p class="data">
+            <ion-icon name="calendar-outline" class="icon-data"></ion-icon>
+            {{historico.dataHora}}
+          </p>
+          <p>
+            <ion-icon name="qr-code-outline" class="icon-qrcode"></ion-icon>
+            {{historico.leitura}}
+          </p>
+        </ion-label>
+      </ion-item>
+    
+      <ion-item-options side="end">
+        <ion-item-option color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
 </ion-content>
-

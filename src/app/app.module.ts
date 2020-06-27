@@ -13,8 +13,7 @@ import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { IonicStorageModule } from '@ionic/storage';
-import { QrcodeService } from './services/qrcode.service';
-
+ 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -33,8 +32,7 @@ import { QrcodeService } from './services/qrcode.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     QRScanner,
     Dialogs,
-    ScreenOrientation,
-    QrcodeService
+    ScreenOrientation
   ],
   bootstrap: [AppComponent]
 })
