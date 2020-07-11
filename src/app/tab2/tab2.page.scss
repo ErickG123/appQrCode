@@ -1,20 +1,8 @@
-.label {
+.line {
+    border-bottom: 1px solid #ccc;
     font-weight: bold;
-    height: 40px;
 }
 
-p {
-    font-size: 15px;
-}
-
-.data {
-    text-align: right;
-}
-
-.icon-data {
-    color: lightcoral;
-}
-
-.icon-qrcode {
-    color: lightskyblue;
+.resultado{
+    margin-top: 10px;
 }

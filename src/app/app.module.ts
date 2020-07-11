@@ -12,7 +12,11 @@ import { AppComponent } from './app.component';
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-import { IonicStorageModule } from '@ionic/storage';
+
+import { AngularFireModule} from '@angular/fire';
+import { AngularFireDatabaseModule, AngularFireDatabase} from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
  
 @NgModule({
   declarations: [AppComponent],
@@ -21,10 +25,9 @@ import { IonicStorageModule } from '@ionic/storage';
       BrowserModule,
       IonicModule.forRoot(),
       AppRoutingModule,
-      IonicStorageModule.forRoot({
-        name: '__mydb',
-        driverOrder: ['indexeddb', 'sqlite', 'websql']
-      })
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFireDatabaseModule,
+      AngularFirestoreModule
     ],
   providers: [
     StatusBar,
